@@ -1,0 +1,2 @@
+myappdemo/ddns/net/app/AppApplicationTests.java
+ myappdemo.ddns.net.app.AppApplicationTests
