@@ -1,0 +1,6 @@
+myappdemo/ddns/net/app/AppApplication.java
+ myappdemo.ddns.net.app.AppApplication
+myappdemo/ddns/net/app/SecurityConfig.java
+ myappdemo.ddns.net.app.SecurityConfig
+myappdemo/ddns/net/app/HttpServer.java
+ myappdemo.ddns.net.app.HttpServer
