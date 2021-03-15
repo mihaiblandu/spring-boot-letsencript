@@ -79,4 +79,18 @@ public class RestApi {
         return null;
     }
 
+    @GetMapping("/delete-all")
+    public String delete(HttpServletRequest request, HttpServletResponse response) {
+
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            Arrays.stream(cookies)
+                    .forEach(el->{
+                        el.setMaxAge(0);
+                        response.addCookie(el);
+                    });
+        }
+        return "All are deleted";
+    }
+
 }
