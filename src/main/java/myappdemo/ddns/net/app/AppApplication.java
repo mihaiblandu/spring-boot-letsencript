@@ -1,5 +1,8 @@
 package myappdemo.ddns.net.app;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -17,8 +20,13 @@ import java.util.stream.Collectors;
 @SpringBootApplication
 @Controller
 public class AppApplication {
+	Logger logger = LoggerFactory.getLogger(AppApplication.class);
+	@Autowired
+	private RequestService requestService;
 	@GetMapping("")
-	public String hello( ){
+	public String hello(HttpServletRequest request){
+		logger.warn(request.getSession().getId());
+		logger.warn( requestService.getClientIp(request));
 		return "index";
 	}
 
