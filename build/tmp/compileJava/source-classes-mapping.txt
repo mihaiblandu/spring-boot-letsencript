@@ -2,8 +2,8 @@ myappdemo/ddns/net/app/AppApplication.java
  myappdemo.ddns.net.app.AppApplication
 myappdemo/ddns/net/app/config/HttpServer.java
  myappdemo.ddns.net.app.config.HttpServer
-myappdemo/ddns/net/app/api/GeoIPTestController.java
- myappdemo.ddns.net.app.api.GeoIPTestController
+myappdemo/ddns/net/app/config/SecurityConfig.java
+ myappdemo.ddns.net.app.config.SecurityConfig
 myappdemo/ddns/net/app/utils/RawDBDemoGeoIPLocationService.java
  myappdemo.ddns.net.app.utils.RawDBDemoGeoIPLocationService
 myappdemo/ddns/net/app/service/RequestServiceImpl.java
@@ -14,5 +14,5 @@ myappdemo/ddns/net/app/models/GeoIP.java
  myappdemo.ddns.net.app.models.GeoIP
 myappdemo/ddns/net/app/api/RestApi.java
  myappdemo.ddns.net.app.api.RestApi
-myappdemo/ddns/net/app/config/SecurityConfig.java
- myappdemo.ddns.net.app.config.SecurityConfig
+myappdemo/ddns/net/app/api/GeoIPTestController.java
+ myappdemo.ddns.net.app.api.GeoIPTestController
