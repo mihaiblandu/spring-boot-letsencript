@@ -1,20 +1,22 @@
 package myappdemo.ddns.net.app;
 
+import com.maxmind.geoip2.exception.AddressNotFoundException;
+import com.maxmind.geoip2.exception.GeoIp2Exception;
+import myappdemo.ddns.net.app.models.GeoIP;
+import myappdemo.ddns.net.app.repo.RequestService;
+import myappdemo.ddns.net.app.utils.RawDBDemoGeoIPLocationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.io.IOException;
 
 
 @SpringBootApplication
@@ -23,10 +25,30 @@ public class AppApplication {
 	Logger logger = LoggerFactory.getLogger(AppApplication.class);
 	@Autowired
 	private RequestService requestService;
+	@Autowired
+	private RawDBDemoGeoIPLocationService locationService;
+
+	@Value("${spring.application.name}")
+	private String appName;
+
 	@GetMapping("")
-	public String hello(HttpServletRequest request){
+	public String hello(HttpServletRequest request, Model model){
 		logger.warn(request.getSession().getId());
 		logger.warn( requestService.getClientIp(request));
+		GeoIP location = null;
+		try {
+			location = locationService.getLocation(requestService.getClientIp(request));
+		} catch (AddressNotFoundException e) {
+			logger.error("is locale");
+			model.addAttribute("location","Local");
+			model.addAttribute("appName",appName);
+			return  "index";
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (GeoIp2Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("location",location.getCity());
 		return "index";
 	}
 
