@@ -17,6 +17,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+	implementation group: 'com.maxmind.geoip2', name: 'geoip2', version: '2.15.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

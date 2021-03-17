@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset = "ISO-8859-1" />
     <link rel="icon" href="/moldova.png" type="image/x-icon">
-    <title>IonGroza&CO</title>
+    <title th:text="${appName}"></title>
 </head>
 <body style="text-align:center;">
-<h1>John Groza is the best.</h1>
-
-<div>
-    <img src="/iongroza.jpeg" width="50%" >
-</div>
-
+<h1 th:text="'Hello, ' + ${location}"></h1>
 </body>
 </html>
