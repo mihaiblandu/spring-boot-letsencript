@@ -24,11 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         * Content Security Policy (CSP) is an added layer of security that helps mitigate XSS
         * (cross-site scripting) and data injection attacks.
          * */
-        http
+/*        http
                 .headers()
                 .xssProtection()
                 .and()
-                .contentSecurityPolicy("script-src 'self'");
+                .contentSecurityPolicy("script-src 'self'");*/
        /*
        TLS/SSL certificates used to be expensive, and HTTPS was considered slow.
        Machines have become much faster, solving the performance problem, and
